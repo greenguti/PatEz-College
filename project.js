@@ -19,8 +19,8 @@ app.get('/students', function(req,res){
         res.render('students.handlebars')
 });
 
-app.get('/teachers', function(req,res){
-  res.render('teachers.handlebars')
+app.get('/professors', function(req,res){
+  res.render('professors.handlebars')
 });
 
 app.get('/courses', function(req,res){
