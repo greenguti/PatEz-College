@@ -4,8 +4,8 @@ Oregon State University
 Project Group 1 
 
 ## Creators:
-Eddie Gutierrez
-Patrick Daniel
+Eddie Gutierrez;
+Patrick Daniel;
 
 Site location:
 
