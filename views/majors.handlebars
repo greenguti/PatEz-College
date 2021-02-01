@@ -7,3 +7,60 @@
     <li><a href="/professors">Professors</a></li>
     <li><a href="/enrollments">Enrollments</a></li>
 </ul>
+
+<form id="Add">
+    <fieldset>
+        <legend>Add Majors</legend>
+        <div>
+            <label for="majorid">Major ID: </label>
+            <input type="text" name="majorid" id="majorid">
+        </div>
+        <br>
+        <div>
+            <label for="addMname">Major Name: </label>
+            <input type="text" name="addMname" id="addMname">
+        </div>
+        <br>
+        <div>
+            <label for="addCname">College Name: </label>
+            <input type="text" name="addCname" id="addCname">
+        </div>
+        <br>
+         <div>
+            <label for="undergrad">Undergraduate: </label>
+            <input type="text" name="undergrad" id="undergrad">
+        </div>
+        <br>
+        <div>
+            <input type="submit" id="addMajor">
+        </div>
+    </fieldset>
+</form>
+
+<form id='Search'>
+    <fieldset>
+        <legend>Search Majors</legend>
+        <div>
+            <label for="sMajorid"> By Major ID: </label>
+            <input type="text" name="sMajorid" id="sMajorid">
+            <input type="submit" id='searchMajorid'>
+        </div>
+    </fieldset>
+</form>
+
+<table id="searchResults">
+    <tr>
+        <th>Major ID </th>
+        <th>Major Name </th>
+        <th>College</th>
+        <th>Undergradudate</th>
+    </tr>
+
+    <tr>
+        <td><input type="text" value="1234"></td>
+        <td><input type="text" value="Physics"></td>
+        <td><input type="text" value="Engineering"></td>
+        <td><input type="text" value="Yes"</td>
+    </tr>
+
+</table>

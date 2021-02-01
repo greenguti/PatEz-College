@@ -6,3 +6,69 @@
     <li><a href="/majors">Majors</a></li>
     <li><a href="/enrollments">Enrollments</a></li>
 </ul>
+
+<form id="Add">
+    <fieldset>
+        <legend>Add Student Information</legend>
+        <div>
+            <label for="addSid">Student ID: </label>
+            <input type="text" name="addSid" id="addSid">
+        </div>
+        <br>
+        <div>
+            <label for="addFName">First Name: </label>
+            <input type="text" name="addFName" id="addFName">
+        </div>
+        <br>
+        <div>
+            <label for="addLName">Last Name: </label>
+            <input type="text" name="addLName" id="addLName">
+        </div>
+        <br>
+        <div>
+            <label for="addGPA">GPA: </label>
+            <input type="text" name="addGPA" id="addGPA">
+        </div>
+        <br>
+        <div>
+            <label for="major">major: </label>
+            <input type="text" name="major" id="major">
+        </div>
+        <br>
+        <div>
+            <input type="submit" id="addStudent">
+        </div>
+    </fieldset>
+</form>
+
+<form id='Search'>
+    <fieldset>
+        <legend>Search Students</legend>
+        <div>
+            <label for="sFName"> First Name: </label>
+            <input type="text" name="sFName" id="sFName">
+            <label for="sLName">Last Name: </label>
+            <input type="text" name="sLName" id="sLName">
+            <input type="submit" id='searchLastName'>
+        </div>
+    </fieldset>
+</form>
+
+<table id="searchResults">
+    <tr>
+        <th>Student ID </th>
+        <th>First Name </th>
+        <th>Last Name</th>
+        <th>GPA</th>
+        <th>major</th>
+    </tr>
+
+    <tr>
+        <td><input type="text" value="555258"></td>
+        <td><input type="text" value="Jane"></td>
+        <td><input type="text" value="Doe"></td>
+        <td><input type="text" value="3.5"></td>
+        <td><input type="text" value="Chemistry"></td>
+    </tr>
+
+</table>

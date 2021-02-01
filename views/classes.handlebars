@@ -7,3 +7,75 @@
     <li><a href="/majors">Majors</a></li>
     <li><a href="/enrollments">Enrollments</a></li>
 </ul>
+
+<form id="Add">
+    <fieldset>
+        <legend>Add Course Information</legend>
+        <div>
+            <label for="addCid">Course ID: </label>
+            <input type="text" name="addCid" id="addCid">
+        </div>
+        <br>
+        <div>
+            <label for="addCname">Course Name: </label>
+            <input type="text" name="addCname" id="addCname">
+        </div>
+        <br>
+        <div>
+            <label for="addCap">Course Capacity: </label>
+            <input type="text" name="addCap" id="addCap">
+        </div>
+        <br>
+        <div>
+            <label for="addCLocation">Location of Course: </label>
+            <input type="text" name="addCLocation" id="addCLocation">
+        </div>
+        <br>
+        <div>
+            <label for="majorid">Major ID: </label>
+            <input type="text" name="majorid" id="majorid">
+        </div>
+        <br>
+        <div>
+            <input type="submit" id="addCourse">
+        </div>
+    </fieldset>
+</form>
+
+
+<form id='Search'>
+    <fieldset>
+        <legend>Search Courses</legend>
+        <div>
+            <label for="sCid"> By Class ID: </label>
+            <input type="text" name="sCid" id="sCid">
+            <input type="submit" id='searchClass'>
+        </div>
+        <br>
+        <div>
+            <label for="slocation">By Class Location: </label>
+            <input type="text" name="slocation" id="sLocation">
+            <input type="submit" id='searchLocation'>
+        </div>
+
+    </fieldset>
+</form>
+
+<table id="searchResults">
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Course Capcaity</th>
+        <th>Course Location</th>
+        <th>Major ID</th>
+    </tr>
+
+    <tr>
+        <td><input type="text" value="314"></td>
+        <td><input type="text" value="Intro to Thermodynamics"></td>
+        <td><input type="text" value="100"></td>
+        <td><input type="text" value="Meta Hall 101"></td>
+        <td><input type="text" value="1234"></td>
+    </tr>
+
+</table>
