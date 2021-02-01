@@ -1,0 +1,72 @@
+<h1>PORTLAND UNIVERSITY - ENROLLMENTS</h1>
+
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/classes">Classes</a></li>
+    <li><a href="/students">Students</a></li>
+    <li><a href="/professors">Professors</a></li>
+    <li><a href="/majors">Majors</a></li>
+</ul>
+
+<form id="Add">
+    <fieldset>
+        <legend>Add Enrollment</legend>
+        <div>
+            <label for="addCid">Class ID: </label>
+            <input type="text" name="addCid" id="addCid">
+        </div>
+        <br>
+        <div>
+            <label for="addSid">StudentID: </label>
+            <input type="text" name="addSid" id="addSid">
+        </div>
+        <br>
+        <div>
+            <input type="submit" id="addSub">
+        </div>
+    </fieldset>
+</form>
+
+<form id='Search'>
+    <fieldset>
+        <legend>Search Enrollments</legend>
+        <div>
+            <label for="sCid"> By Class ID: </label>
+            <input type="text" name="sCid" id="sCid">
+            <input type="submit" id='searchClass'>
+        </div>
+        <br>
+        <div>
+            <label for="sSid">By Student ID: </label>
+            <input type="text" name="sSid" id="sSid">
+            <input type="submit" id='searchStudent'>
+        </div>
+
+    </fieldset>
+</form>
+
+<table id="searchResults">
+    <tr>
+        <th>Class ID </th>
+        <th>Student ID </th>
+        <th>Grade</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr>
+        <td><input type="text" value="314"></td>
+        <td><input type="text" value="561"></td>
+        <td><input type="text" value="A"></td>
+        <td>
+            <button id="update">Update</button>
+        </td>
+        <td>
+            <button id="delete">Delete</button>
+        </td>
+    </tr>
+
+</table>
+
+
+<script src="enrollments.js"></script>

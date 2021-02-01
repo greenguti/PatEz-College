@@ -1,0 +1,74 @@
+<h1>PORTLAND UNIVERSITY - PROFESSORS</h1>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/classes">Classes</a></li>
+    <li><a href="/students">Students</a></li>
+    <li><a href="/majors">Majors</a></li>
+    <li><a href="/enrollments">Enrollments</a></li>
+</ul>
+
+<form id="Add">
+    <fieldset>
+        <legend>Add Professor</legend>
+        <div>
+            <label for="addEid">Employee ID: </label>
+            <input type="text" name="addEid" id="addEid">
+        </div>
+        <br>
+        <div>
+            <label for="addFName">First Name: </label>
+            <input type="text" name="addFName" id="addFName">
+        </div>
+        <br>
+        <div>
+            <label for="addLName">Last Name: </label>
+            <input type="text" name="addLName" id="lName">
+        </div>
+        <br>
+        <div>
+            <label for="college">College: </label>
+            <input type="text" name="college" id="college">
+        </div>
+        <br>
+        <div>
+            <label for="tenured">Tenured: </label>
+            <input type="text" name="tenured" id="tenured">
+        </div>
+        <br>
+        <div>
+            <input type="submit" id="addSub">
+        </div>
+    </fieldset>
+</form>
+
+<form id='Search'>
+    <fieldset>
+        <legend>Search Professors</legend>
+        <div>
+            <label for="sFName"> First Name: </label>
+            <input type="text" name="sFName" id="sFName">
+            <label for="sLName">Last Name: </label>
+            <input type="text" name="sLName" id="sLName">
+            <input type="submit" id='searchClass'>
+        </div>
+    </fieldset>
+</form>
+
+<table id="searchResults">
+    <tr>
+        <th>Employee ID </th>
+        <th>First Name </th>
+        <th>Last Name</th>
+        <th>College</th>
+        <th>Tenured</th>
+    </tr>
+
+    <tr>
+        <td><input type="text" value="314"></td>
+        <td><input type="text" value="John"></td>
+        <td><input type="text" value="Smith"></td>
+        <td><input type="text" value="Engineering"></td>
+        <td><input type="text" value="Yes"></td>
+    </tr>
+
+</table>
