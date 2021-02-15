@@ -5,13 +5,18 @@
     <fieldset>
         <legend>Add Enrollment</legend>
         <div>
-            <label for="addCid">Class ID: </label>
+            <label for="addCid">Class Name: </label>
             <input type="text" name="addCid" id="addCid">
         </div>
         <br>
         <div>
-            <label for="addSid">StudentID: </label>
+            <label for="addSid">Student ID: </label>
             <input type="text" name="addSid" id="addSid">
+        </div>
+        <br>
+        <div>
+            <label for="grade">Grade: </label>
+            <input type="text" name="grade" id="grade">
         </div>
         <br>
         <div>
@@ -24,7 +29,7 @@
     <fieldset>
         <legend>Search Enrollments</legend>
         <div>
-            <label for="sCid"> By Class ID: </label>
+            <label for="sCid"> By Class Name: </label>
             <input type="text" name="sCid" id="sCid">
             <input type="submit" id='searchClass'>
         </div>
@@ -40,16 +45,20 @@
 
 <table id="searchResults">
     <tr>
-        <th>Class ID </th>
         <th>Student ID </th>
+        <th>Student Name</th>
+        <th>Class ID </th>
+        <th>Class Name </th>
         <th>Grade</th>
         <th>Update</th>
         <th>Delete</th>
     </tr>
 
     <tr>
-        <td><input type="text" value="314"></td>
+        <td><input type="text" value="235"></td>
+        <td><input type="text" value="Steve Jobs"></td>
         <td><input type="text" value="561"></td>
+        <td><input type="text" value="Intro to Python"></td>
         <td><input type="text" value="A"></td>
         <td>
             <button id="update">Update</button>

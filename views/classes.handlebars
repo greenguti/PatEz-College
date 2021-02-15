@@ -3,33 +3,39 @@
 <form id="Add">
     <fieldset>
         <legend>Add Class</legend>
+
         <div>
-            <label for="addCid">Course ID: </label>
-            <input type="text" name="addCid" id="addCid">
-        </div>
-        <br>
-        <div>
-            <label for="addCname">Course Name: </label>
+            <label for="addCname">Name: </label>
             <input type="text" name="addCname" id="addCname">
         </div>
         <br>
         <div>
-            <label for="addCap">Course Capacity: </label>
+            <label for="addCap">Capacity: </label>
             <input type="text" name="addCap" id="addCap">
         </div>
         <br>
         <div>
-            <label for="addCLocation">Location of Course: </label>
+            <label for="addCLocation">Location: </label>
             <input type="text" name="addCLocation" id="addCLocation">
         </div>
         <br>
         <div>
-            <label for="majorid">Major ID: </label>
+            <label for="majorid">Major: </label>
             <input type="text" name="majorid" id="majorid">
         </div>
         <br>
         <div>
-            <input type="submit" id="addCourse">
+            <label for="pfname">Professor First Name: </label>
+            <input type="text" name="majorid" id="majorid">
+        </div>
+        <br>
+        <div>
+            <label for="plname">Professor Last Name: </label>
+            <input type="text" name="majorid" id="majorid">
+        </div>
+        <br>
+        <div>
+            <input type="submit" id="addClass">
         </div>
     </fieldset>
 </form>
@@ -37,29 +43,25 @@
 
 <form id='Search'>
     <fieldset>
-        <legend>Search Courses</legend>
+        <legend>Search Classes</legend>
         <div>
-            <label for="sCid"> By Class ID: </label>
-            <input type="text" name="sCid" id="sCid">
+            <label for="sCid"> By Class Name: </label>
+            <input type="text" name="sCid" id="sCid" value="AUTO-POPULATE">
             <input type="submit" id='searchClass'>
         </div>
         <br>
-        <div>
-            <label for="slocation">By Class Location: </label>
-            <input type="text" name="slocation" id="sLocation" value="Auto-populate">
-            <input type="submit" id='searchLocation'>
-        </div>
 
     </fieldset>
 </form>
 
 <table id="searchResults">
     <tr>
-        <th>Course ID</th>
-        <th>Course Name</th>
-        <th>Course Capcaity</th>
-        <th>Course Location</th>
-        <th>Major ID</th>
+        <th>Class ID</th>
+        <th>Name</th>
+        <th>Capacity</th>
+        <th>Location</th>
+        <th>Major</th>
+        <th>Professor</th>
     </tr>
 
     <tr>
@@ -68,6 +70,8 @@
         <td><input type="text" value="100"></td>
         <td><input type="text" value="Meta Hall 101"></td>
         <td><input type="text" value="1234"></td>
+        <td><input type="text" value="Einstein"></td>
+
     </tr>
 
 </table>
