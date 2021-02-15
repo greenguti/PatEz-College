@@ -20,12 +20,11 @@ SELECT * FROM Professors WHERE first_name= :first_name_input AND last_name=:last
 ORDER BY last_name;
 
 -- Queries for /classes
-INSERT INTO Classes (name, capacity, location, major, employee_id)
-VALUES (:name_input, :capacity_input, :location_input, 
-(SELECT major_id FROM Majors WHERE name= :major_name_input),
+INSERT INTO Classes (name, capacity, major, employee_id)
+VALUES (:name_input, :capacity_input, (SELECT major_id FROM Majors WHERE name= :major_name_input),
 (SELECT employee_id from Professors WHERE first_name=:first_name_input AND last_name=:last_name_input));
 
-SELECT Classes.class_id, Classes.name, Classes.capacity, Classes.location, Majors.name AS major, Professors.last_name AS Professor
+SELECT Classes.class_id, Classes.name, Classes.capacity, Majors.name AS major, Professors.last_name AS Professor
 FROM Classes JOIN Majors on Classes.major_id = Majors.Major_id JOIN Professors on Classes.employee_id = Professors.employee_id 
 WHERE Classes.name=:search_name_input
 ORDER BY CLasses.name;
