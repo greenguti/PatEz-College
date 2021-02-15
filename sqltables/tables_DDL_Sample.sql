@@ -43,7 +43,6 @@ CREATE TABLE `Classes` (
 	`class_id` INT(8) NOT NULL AUTO_INCREMENT UNIQUE,
 	`name` VARCHAR(255) NOT NULL,
 	`capacity` INT(4),
-	`location` VARCHAR(255),
 	`major_id` INT(8),
 	`employee_id` INT(8) NOT NULL,
 	PRIMARY KEY(`class_id`),
