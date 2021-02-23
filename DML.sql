@@ -16,8 +16,9 @@ INSERT INTO Professors (first_name, last_name, college, tenured)
 VALUES (:first_name_input, :last_name_input, :college_input, 
 :tenured_yes=1_no=0); 
 
-SELECT * FROM Professors WHERE first_name= :first_name_input AND last_name=:last_name_input
-ORDER BY last_name;
+SELECT employee_id AS id, first_name, last_name, college, tenured FROM Professors
+
+SELECT employee.id as id, first_name, last_name, college, tenured FROM Professors WHERE last_name LIKE :last_name_input
 
 -- Queries for /classes
 INSERT INTO Classes (name, capacity, major, employee_id)

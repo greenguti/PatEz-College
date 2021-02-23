@@ -1,63 +1,74 @@
-<h1>PROFESSORS</h1>
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add">
+            <fieldset>
+                <legend>Add New Professor</legend>
+                <div class="form-group">
+                    <label for="addFName">First Name: </label>
+                    <input class="form-control" type="text" name="addFName" id="addFName">
+                </div>
 
+                <div class="form-group">
+                    <label for="addLName">Last Name: </label>
+                    <input class="form-control" type="text" name="addLName" id="lName">
+                </div>
 
-<form id="Add">
-    <fieldset>
-        <legend>Add Professor</legend>
-        <div>
-            <label for="addFName">First Name: </label>
-            <input type="text" name="addFName" id="addFName">
-        </div>
-        <br>
-        <div>
-            <label for="addLName">Last Name: </label>
-            <input type="text" name="addLName" id="lName">
-        </div>
-        <br>
-        <div>
-            <label for="college">College: </label>
-            <input type="text" name="college" id="college">
-        </div>
-        <br>
-        <div>
-            <label for="tenured">Tenured: </label>
-            <input type="text" name="tenured" id="tenured">
-        </div>
-        <br>
-        <div>
-            <input type="submit" id="addSub">
-        </div>
-    </fieldset>
-</form>
+                <div class="form-group">
+                    <label for="college">College: </label>
+                    <input class="form-control" type="text" name="college" id="college">
+                </div>
 
-<form id='Search'>
-    <fieldset>
-        <legend>Search Professors</legend>
-        <div>
-            <label for="sFName"> First Name: </label>
-            <input type="text" name="sFName" id="sFName">
-            <label for="sLName">Last Name: </label>
-            <input type="text" name="sLName" id="sLName">
-            <input type="submit" id='searchClass'>
-        </div>
-    </fieldset>
-</form>
+                <div class="form-group">
+                    <label for="tenured">Tenured: </label>
+                    <input class="form-control" type="text" name="tenured" id="tenured">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
 
-<table id="searchResults">
-    <tr>
-        <th>Employee ID </th>
-        <th>First Name </th>
-        <th>Last Name</th>
-        <th>College</th>
-        <th>Tenured</th>
-    </tr>
+        <div class="col-md-2"></div>
 
-    <tr>
-        <td><input type="text" value="314"></td>
-        <td><input type="text" value="John"></td>
-        <td><input type="text" value="Smith"></td>
-        <td><input type="text" value="Engineering"></td>
-        <td><input type="text" value="Yes"></td>
-    </tr>
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Professors</legend>
+
+                <div class="form-group">
+                    <label for="sLName">Last Name: </label>
+                    <input class="form-control" type="text" name="sLName" id="sLName">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="Search" id='searchClass' onclick="getProfByName()">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">College</th>
+            <th scope="col">Tenured</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each profs}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{first_name}}</td>
+            <td>{{last_name}}</td>
+            <td>{{college}}</td>
+            <td>{{tenured}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
 
 </table>
