@@ -82,14 +82,14 @@ VALUES ('Bill', 'Gates', 'Engineering', 1), ('Gavin', 'Belson', 'Business', 0),
 ('Albert', 'Einstein', 'Engineering', 0), ('Georgia', "O'Keefe", 'Liberal Arts', 1);
 
 -- Sample Data for Classes
-INSERT INTO Classes (name, capacity, location, major_id, employee_id)
-VALUES ('Intro to Python', 120, 'Edwards 1453', (SELECT major_id FROM Majors WHERE name='Computer Science'),
+INSERT INTO Classes (name, capacity, major_id, employee_id)
+VALUES ('Intro to Python', 120, (SELECT major_id FROM Majors WHERE name='Computer Science'),
  (SELECT employee_id FROM Professors WHERE first_name='Bill' AND last_name = 'Gates')),
- ('Flower Design', 30, 'Hall 1569', (SELECT major_id FROM Majors WHERE name='Art'),
+ ('Flower Design', 30, (SELECT major_id FROM Majors WHERE name='Art'),
  (SELECT employee_id FROM Professors WHERE first_name='Georgia' AND last_name = "O'Keefe")),
- ('Basics of Business', 450, 'Musk 570', (SELECT major_id FROM Majors WHERE name='Business'),
+ ('Basics of Business', 450, (SELECT major_id FROM Majors WHERE name='Business'),
  (SELECT employee_id FROM Professors WHERE first_name='Gavin' AND last_name = 'Belson')),
- ('Ethics in Physics', 340, 'Edwards 1684', (SELECT major_id FROM Majors WHERE name='Physics'),
+ ('Ethics in Physics', 340, (SELECT major_id FROM Majors WHERE name='Physics'),
  (SELECT employee_id FROM Professors WHERE first_name='Albert' AND last_name = 'Einstein'));
 
 -- Sample Data for Enrollments

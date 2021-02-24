@@ -1,74 +1,82 @@
-<h1>ENROLLMENTS</h1>
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/enrollments" method="post">
+            <fieldset>
+                <legend>Add Enrollment</legend>
+                <div class="form-group">
+                    <label for="cName">Class Name: </label>
+                    <input class="form-control" type="text" name="cName" id="cName">
+                </div>
 
+                <div class="form-group">
+                    <label for="sid">Student ID: </label>
+                    <input class="form-control" type="text" name="sid" id="sid">
+                </div>
 
-<form id="Add">
-    <fieldset>
-        <legend>Add Enrollment</legend>
-        <div>
-            <label for="addCid">Class Name: </label>
-            <input type="text" name="addCid" id="addCid">
-        </div>
-        <br>
-        <div>
-            <label for="addSid">Student ID: </label>
-            <input type="text" name="addSid" id="addSid">
-        </div>
-        <br>
-        <div>
-            <label for="grade">Grade: </label>
-            <input type="text" name="grade" id="grade">
-        </div>
-        <br>
-        <div>
-            <input type="submit" id="addSub">
-        </div>
-    </fieldset>
-</form>
+                <div class="form-group">
+                    <label for="grade">Grade: </label>
+                    <input class="form-control" type="text" name="grade" id="grade">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
 
-<form id='Search'>
-    <fieldset>
-        <legend>Search Enrollments</legend>
-        <div>
-            <label for="sCid"> By Class Name: </label>
-            <input type="text" name="sCid" id="sCid">
-            <input type="submit" id='searchClass'>
-        </div>
-        <br>
-        <div>
-            <label for="sSid">By Student ID: </label>
-            <input type="text" name="sSid" id="sSid">
-            <input type="submit" id='searchStudent'>
-        </div>
+        <div class="col-md-2"></div>
 
-    </fieldset>
-</form>
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Enrollments</legend>
+                <div class="form-group">
+                    <label for="sCid"> By Class Name: </label>
+                    <input class="form-control" type="text" name="sCname" id="sCname">
+                    <br>
+                    <input class="btn btn-dark" value="Search" type="button" onclick="searchEnrollByClass()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="sSid">By Student ID: </label>
+                    <input class="form-control" type="text" name="sSid" id="sSid">
+                    <br>
+                    <input class="btn btn-dark" value="Search" type="button" onclick="searchEnrollBySid()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="All Enrollments" id='getAll'
+                        onclick="window.location.href='/enrollments'">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
 
-<table id="searchResults">
-    <tr>
-        <th>Student ID </th>
-        <th>Student Name</th>
-        <th>Class ID </th>
-        <th>Class Name </th>
-        <th>Grade</th>
-        <th>Update</th>
-        <th>Delete</th>
-    </tr>
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Student Name</th>
+            <th scope="col">Student ID </th>
+            <th scope="col">Class Name </th>
+            <th scope="col">Class ID </th>
+            <th scope="col">Grade</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
 
-    <tr>
-        <td><input type="text" value="235"></td>
-        <td><input type="text" value="Steve Jobs"></td>
-        <td><input type="text" value="561"></td>
-        <td><input type="text" value="Intro to Python"></td>
-        <td><input type="text" value="A"></td>
-        <td>
-            <button id="update">Update</button>
-        </td>
-        <td>
-            <button id="delete">Delete</button>
-        </td>
-    </tr>
+    <tbody>
+        {{#each enrolls}}
+        <tr>
+            <th scope="row">{{sName}}</th>
+            <td>{{sid}}</td>
+            <td>{{cName}}</td>
+            <td>{{cid}}</td>
+            <td>{{grade}}</td>
+            <td><input type="button" class="btn btn-dark" value="Update" onclick="deleteEnroll({{cid}}, {{sid}})"></td>
+            <td><input type="button" class="btn btn-dark" value="Delete" onclick="updateEnroll({{cid}}, {{sid}})"></td>
+        </tr>
+        {{/each}}
+    </tbody>
 
 </table>
-
-
-<script src="enrollments.js"></script>
