@@ -1,6 +1,7 @@
-function getClassByName() {
+function getClassByID() {
     // get name
-    var Clname = document.getElementById('ClName').value
+    var Clname = document.getElementById('sCid').value
         //construct URL and redirect
+    console.log(Clname)
     window.location = '/classes/search/' + encodeURI(lName)
 }
