@@ -10,7 +10,6 @@ module.exports = function() {
     		}
 
     		context.Cla = results;
-    		context.Cla.forEach(element => changeBool(element))
     		complete();
     	});
     }
@@ -24,7 +23,6 @@ module.exports = function() {
     		}
 
     		context.Cla = results;
-    		context.Cla.forEach(element => changeBool(element))
     		complete();
     	});
     }
