@@ -9,7 +9,7 @@ Project Group 1
 
 Eddie Gutierrez
 
-Patrick Daniel
+Patrick Daniels
 
 Site location:
 
