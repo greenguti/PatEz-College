@@ -5,3 +5,4 @@ function getMajorByCollege() {
     console.log(Coll)
     window.location = '/majors/search/' + encodeURI(lName)
 }
+

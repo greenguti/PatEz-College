@@ -1,62 +1,86 @@
-<h1>STUDENTS</h1>
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/students" method="post">
+            <fieldset>
+                <legend>Add New Student</legend> 
 
-<form id="Add">
-    <fieldset>
-        <legend>Add Student</legend>
-        <div>
-            <label for="addFName">First Name: </label>
-            <input type="text" name="addFName" id="addFName">
-        </div>
-        <br>
-        <div>
-            <label for="addLName">Last Name: </label>
-            <input type="text" name="addLName" id="addLName">
-        </div>
-        <br>
-        <div>
-            <label for="addGPA">GPA: </label>
-            <input type="text" name="addGPA" id="addGPA">
-        </div>
-        <br>
-        <div>
-            <label for="major">Major: </label>
-            <input type="text" name="major" id="major">
-        </div>
-        <br>
-        <div>
-            <input type="submit" id="addStudent">
-        </div>
-    </fieldset>
-</form>
+                <div class="form-group">
+                    <label for="sid">Student ID </label>
+                    <input class="form-control" type="text" name="sid" id="sid">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fname">First Name: </label>
+                    <input class="form-control" type="text" name="fname" id="fname">
+                </div>
 
-<form id='Search'>
-    <fieldset>
-        <legend>Search Students</legend>
-        <div>
-            <label for="sFName"> First Name: </label>
-            <input type="text" name="sFName" id="sFName">
-            <label for="sLName">Last Name: </label>
-            <input type="text" name="sLName" id="sLName">
-            <input type="submit" id='searchLastName'>
-        </div>
-    </fieldset>
-</form>
+                <div class="form-group">
+                    <label for="lname">Last Name: </label>
+                    <input class="form-control" type="text" name="lname" id="lname">
+                </div>
 
-<table id="searchResults">
-    <tr>
-        <th>Student ID </th>
-        <th>First Name </th>
-        <th>Last Name</th>
-        <th>GPA</th>
-        <th>Major</th>
-    </tr>
+                <div class="form-group">
+                    <label for="GPA">GPA: </label>
+                    <input class="form-control" type="text" name="GPA" id="GPA">
+                </div>
 
-    <tr>
-        <td><input type="text" value="555258"></td>
-        <td><input type="text" value="Jane"></td>
-        <td><input type="text" value="Doe"></td>
-        <td><input type="text" value="3.5"></td>
-        <td><input type="text" value="Chemistry"></td>
-    </tr>
+                <div class="form-group">
+                    <label for="major">Major: </label>
+                    <input class="form-control" type="text" name="major" id="major">
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="col-md-2"></div>
+
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Students</legend>
+
+                <div class="form-group">
+                    <label for="sLName">Last Name: </label>
+                    <input class="form-control" type="text" name="sLName" id="sLName">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="Search" id='searchClass' onclick="getStudentByName()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="All Students" id='getAll'
+                        onclick="window.location.href='/students'">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Student ID</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">GPA</th>
+            <th scope="col">Major</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each stud}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{last_name}}</td>
+            <td>{{first_name}}</td>
+            <td>{{gpa}}</td>
+            <td>{{major_id}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
 
 </table>

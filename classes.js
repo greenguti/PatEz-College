@@ -78,11 +78,5 @@ module.exports = function() {
         });
     })
 
-
-
-    router.get('/', function(req, res) {
-        res.render('classes')
-    });
-
     return router;
 }();

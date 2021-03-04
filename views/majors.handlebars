@@ -1,55 +1,79 @@
-<h1>MAJORS</h1>
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/majors" method="post">
+            <fieldset>
+                <legend>Add New Major</legend>
+                 
+                 <div class="form-group">
+                    <label for="MajID">Major ID: </label>
+                    <input class="form-control" type="text" name="MajID" id="MajID">
+                </div>
 
+                <div class="form-group">
+                    <label for="Mname">Major Name: </label>
+                    <input class="form-control" type="text" name="Mname" id="Mname">
+                </div>
+                
+                <div class="form-group">
+                    <label for="addCollege">College: </label>
+                    <input class="form-control" type="text" name="addCollege" id="addCollege">
+                </div>
 
-<form id="Add">
-    <fieldset>
-        <legend>Add Majors</legend>
+                <div class="form-group">
+                    <label for="undergrad">Undergraduate: </label>
+                    <input class="form-control" type="text" name="undergrad" id="undergrad" placeholder="Yes/No">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
 
-        <div>
-            <label for="addMname">Name: </label>
-            <input type="text" name="addMname" id="addMname">
-        </div>
-        <br>
-        <div>
-            <label for="addCname">College: </label>
-            <input type="text" name="addCname" id="addCname">
-        </div>
-        <br>
-        <div>
-            <label for="undergrad">Undergraduate: </label>
-            <input type="text" name="undergrad" id="undergrad">
-        </div>
-        <br>
-        <div>
-            <input type="submit" id="addMajor">
-        </div>
-    </fieldset>
-</form>
+        <div class="col-md-2"></div>
 
-<form id='Search'>
-    <fieldset>
-        <legend>Search Majors</legend>
-        <div>
-            <label for="sMajorid"> By Major Name: </label>
-            <input type="text" name="sMajorid" id="sMajorid">
-            <input type="submit" id='searchMajorid'>
-        </div>
-    </fieldset>
-</form>
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Majors</legend>
+                <div class="form-group">
+                    <label for="sCname">By College Name: </label>
+                    <input class="form-control" type="text" name="sCname" id="sCname">
+                    <br>
+                    <input class = "btn btn-dark" value="Search" type="button" onclick="searchMajorByCollege()"
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="Search" id='searchMajor' onclick="getMajorByCollege()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="All Majors" id='getAll'
+                        onclick="window.location.href='/majors'">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
 
-<table id="searchResults">
-    <tr>
-        <th>Major ID </th>
-        <th>Major Name </th>
-        <th>College</th>
-        <th>Undergraduate</th>
-    </tr>
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Major ID</th>
+            <th scope="col">Major Name</th>
+            <th scope="col">College Name</th>
+            <th scope="col">Undergraduate</th>
+        </tr>
+    </thead>
 
-    <tr>
-        <td><input type="text" value="1234"></td>
-        <td><input type="text" value="Physics"></td>
-        <td><input type="text" value="Engineering"></td>
-        <td><input type="text" value="Yes" </td>
-    </tr>
+    <tbody>
+        {{#each stud}}
+        <tr>
+            <th scope="row">{{major_id}}</th>
+            <td>{{name}}</td>
+            <td>{{college}}</td>
+            <td>{{Undergraduate}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
 
 </table>
