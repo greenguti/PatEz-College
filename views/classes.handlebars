@@ -78,7 +78,9 @@
             <td>{{class_name}}</td>
             <td>{{capacity}}</td>
             <td>{{major_id}}</td>
-            <td>{{last_name}},{{first_name}}</td>
+            <td>{{pName}}</td>
+             <td><button onclick="deleteClass({{id}})">Delete</button></td>
+            <td><a href="/class/{{id}}">Update</a></td>
         </tr>
         {{/each}}
     </tbody>

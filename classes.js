@@ -78,5 +78,44 @@ module.exports = function() {
         });
     })
 
+	
+    /* The URI that update data is sent to in order to update a person */
+
+    router.put('/:id', function(req, res){
+        var mysql = req.app.get('mysql');
+        console.log(req.body)
+        console.log(req.params.id)
+        var sql = "UPDATE Classes SET class_id=?,name=?,capacity=?,major_id=?, employee_id=? WHERE name=?";
+        var inserts = req.body.cid, req.body.Clname, req.body.cap, req.body.mid, req.body.eid];
+        sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+            if(error){
+                console.log(error)
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.status(200);
+                res.end();
+            }
+        });
+    });
+
+    /* Route to delete a person, simply returns a 202 upon success. Ajax will handle this. */
+
+    router.delete('/:id', function(req, res){
+        var mysql = req.app.get('mysql');
+        var sql = "DELETE FROM Classes WHERE name= ?";
+        var inserts = [req.params.id];
+        sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                console.log(error)
+                res.write(JSON.stringify(error));
+                res.status(400);
+                res.end();
+            }else{
+                res.status(202).end();
+            }
+        })
+    })
+
     return router;
 }();
