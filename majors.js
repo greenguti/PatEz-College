@@ -95,5 +95,10 @@ module.exports = function() {
     })
 
 
+
+    router.get('/', function(req, res) {
+        res.render('majors')
+    });
+
     return router;
 }();

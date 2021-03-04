@@ -10,6 +10,7 @@ module.exports = function() {
     		}
 
     		context.stud = results;
+    		context.stud.forEach(element => changeBool(element))
     		complete();
     	});
     }
@@ -23,6 +24,7 @@ module.exports = function() {
     		}
 
     		context.stud = results;
+    		context.stud.forEach(element => changeBool(element))
     		complete();
     	});
     }
@@ -75,6 +77,7 @@ module.exports = function() {
             }
         });
     })
+
 
     return router;
 }();
