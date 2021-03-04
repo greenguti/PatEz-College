@@ -3,7 +3,7 @@ module.exports = function() {
     var router = express.Router();
 
     function getAllClasses(res,mysql,context,complete){
-    	mysql.pool.query("SELECT class_id as id, name,capacity,major_id,employee_id FROM Classes ORDER BY name", function(error, results, fields){
+    	mysql.pool.query("SELECT Cname,capacity,major_id, CONCAT(Professors.last_name,', ',Professors.first_name)\ AS pName, FROM Classes ORDER BY name", function(error, results, fields){
     		if(error){
     			res.write(JSON.stringify(error));
     			res.end();
@@ -16,7 +16,7 @@ module.exports = function() {
     }
 
     function getClassName(req,res,mysql,context,complete){
-    	var query = "SELECT class_id as id, name,capacity,major_id,employee_id FROM Classes WHERE name LIKE " + mysql.pool.escape(req.params.s + '%');
+    	var query = "SELECT Cname,capacity,major_id, CONCAT(Professors.last_name,', ',Professors.first_name)\ AS pName, FROM Classes WHERE name LIKE " + mysql.pool.escape(req.params.s + '%');
     	mysql.pool.query(query, function(error,results,fields){
     	if(error){
     			res.write(JSON.stringify(error));
@@ -55,7 +55,7 @@ module.exports = function() {
     	function complete(){
     		callbackCount++;
     		if(callbackCount >= 1){
-    			res.render('students',context);
+    			res.render('classes',context);
     		}
     	}
     })
@@ -63,7 +63,7 @@ module.exports = function() {
 
      router.post('/', function(req, res) {
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO Classes (class_id, name, capacity, major_id,employee_id) VALUES (?,?,?,?,?)"
+        var sql = "INSERT INTO Classes (Cname, capacity, major_id,pName) VALUES (?,?,?,?,?)"
 
         var inserts = [req.body.cid, req.body.Clname, req.body.cap, req.body.mid, req.body.eid]
         console.log(inserts)

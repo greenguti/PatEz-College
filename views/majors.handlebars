@@ -36,8 +36,8 @@
             <fieldset>
                 <legend>Search Majors</legend>
                 <div class="form-group">
-                    <label for="sCname">By College Name: </label>
-                    <input class="form-control" type="text" name="sCname" id="sCname">
+                    <label for="sMajorid">By College Name: </label>
+                    <input class="form-control" type="text" name="sMajorid" id="sMajorid">
                     <br>
                     <input class = "btn btn-dark" value="Search" type="button" onclick="searchMajorByCollege()"
                 </div>
@@ -66,9 +66,9 @@
     </thead>
 
     <tbody>
-        {{#each stud}}
+        {{#each majs}}
         <tr>
-            <th scope="row">{{major_id}}</th>
+            <th scope="row">{{id}}</th>
             <td>{{name}}</td>
             <td>{{college}}</td>
             <td>{{Undergraduate}}</td>

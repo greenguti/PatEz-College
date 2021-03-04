@@ -43,8 +43,8 @@
                 <legend>Search Classes</legend>
 
                 <div class="form-group">
-                    <label for="ClName">Class Name: </label>
-                    <input class="form-control" type="text" name="ClName" id="ClName">
+                    <label for="sMajorid">Class Name: </label>
+                    <input class="form-control" type="text" name="sMajorid" id="sMajorid">
                 </div>
                 <br>
                 <div class="form-group">
@@ -72,10 +72,10 @@
     </thead>
 
     <tbody>
-        {{#each stud}}
+        {{#each Cla}}
         <tr>
             <th scope="row">{{id}}</th>
-            <td>{{class_name}},{{first_name}}</td>
+            <td>{{class_name}}</td>
             <td>{{capacity}}</td>
             <td>{{major_id}}</td>
             <td>{{last_name}},{{first_name}}</td>
