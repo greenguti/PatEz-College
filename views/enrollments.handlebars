@@ -9,8 +9,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="sid">Student ID: </label>
-                    <input class="form-control" type="text" name="sid" id="sid">
+                    <label for="sfName">Student First Name: </label>
+                    <input class="form-control" type="text" name="sfName" id="sfName">
+                </div>
+
+                <div class="form-group">
+                    <label for="slName">Student Last Name: </label>
+                    <input class="form-control" type="text" name="slName" id="slName">
                 </div>
 
                 <div class="form-group">
@@ -37,10 +42,11 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="sSid">By Student ID: </label>
-                    <input class="form-control" type="text" name="sSid" id="sSid">
+
+                    <label for="sName">By Student Name: </label>
+                    <input class="form-control" type="text" name="sName" id="sName" placeholder="Last, First">
                     <br>
-                    <input class="btn btn-dark" value="Search" type="button" onclick="searchEnrollBySid()">
+                    <input class="btn btn-dark" value="Search" type="button" onclick="searchEnrollByStudentName()">
                 </div>
                 <br>
                 <div class="form-group">
@@ -73,8 +79,8 @@
             <td>{{cName}}</td>
             <td>{{cid}}</td>
             <td>{{grade}}</td>
-            <td><input type="button" class="btn btn-dark" value="Update" onclick="deleteEnroll({{cid}}, {{sid}})"></td>
-            <td><input type="button" class="btn btn-dark" value="Delete" onclick="updateEnroll({{cid}}, {{sid}})"></td>
+            <td><a type="button" class="btn btn-dark" href="/enrollments/{{cid}}&{{sid}}">Update</td>
+            <td><input type="button" class="btn btn-dark" value="Delete" onclick="deleteEnroll({{cid}}, {{sid}})"></td>
         </tr>
         {{/each}}
     </tbody>

@@ -2,64 +2,64 @@ module.exports = function() {
     var express = require('express');
     var router = express.Router();
 
-    function getAllClasses(res,mysql,context,complete){
-    	mysql.pool.query("SELECT class_id as id, name,capacity,major_id,employee_id FROM Classes ORDER BY name", function(error, results, fields){
-    		if(error){
-    			res.write(JSON.stringify(error));
-    			res.end();
-    		}
+    function getAllClasses(res, mysql, context, complete) {
+        mysql.pool.query("SELECT class_id as id, name,capacity,major_id,employee_id FROM Classes ORDER BY name", function(error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
 
-    		context.Cla = results;
-    		complete();
-    	});
+            context.Cla = results;
+            complete();
+        });
     }
 
-    function getClassName(req,res,mysql,context,complete){
-    	var query = "SELECT class_id as id, name,capacity,major_id,employee_id FROM Classes WHERE name LIKE " + mysql.pool.escape(req.params.s + '%');
-    	mysql.pool.query(query, function(error,results,fields){
-    	if(error){
-    			res.write(JSON.stringify(error));
-    			res.end();
-    		}
+    function getClassName(req, res, mysql, context, complete) {
+        var query = "SELECT class_id as id, name,capacity,major_id,employee_id FROM Classes WHERE name LIKE " + mysql.pool.escape(req.params.s + '%');
+        mysql.pool.query(query, function(error, results, fields) {
+            if (error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
 
-    		context.Cla = results;
-    		complete();
-    	});
+            context.Cla = results;
+            complete();
+        });
     }
 
     router.get('/', function(req, res) {
-    	var callbackCount = 0;
-    	var context = {};
-    	context.jsscripts = ["getClassByName.js"];
-    	var mysql = req.app.get('mysql')
-    	getAllClasses(res,mysql,context,complete)
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["getClassByName.js"];
+        var mysql = req.app.get('mysql')
+        getAllClasses(res, mysql, context, complete)
 
-    	function complete(){
-    		callbackCount++;
-    		if(callbackCount >= 1){
-    			res.render('classes',context)
-    			console.log(context)
-    		}
-    	}
+        function complete() {
+            callbackCount++;
+            if (callbackCount >= 1) {
+                res.render('classes', context)
+                console.log(context)
+            }
+        }
     });
 
-    router.get('/search/:s/',function(req,res){
-    	var callbackCount = 0;
-    	var context = {};
-    	context.jsscripts = ["getClassByName.js"];
-    	var mysql = req.app.get('mysql')
-    	getClassName(req,res,mysql,context,complete);
+    router.get('/search/:s/', function(req, res) {
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["getClassByName.js"];
+        var mysql = req.app.get('mysql')
+        getClassName(req, res, mysql, context, complete);
 
-    	function complete(){
-    		callbackCount++;
-    		if(callbackCount >= 1){
-    			res.render('students',context);
-    		}
-    	}
+        function complete() {
+            callbackCount++;
+            if (callbackCount >= 1) {
+                res.render('students', context);
+            }
+        }
     })
 
 
-     router.post('/', function(req, res) {
+    router.post('/', function(req, res) {
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO Classes (class_id, name, capacity, major_id,employee_id) VALUES (?,?,?,?,?)"
 

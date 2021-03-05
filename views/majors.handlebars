@@ -1,55 +1,51 @@
-<h1>MAJORS</h1>
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/majors" method="post">
+            <fieldset>
+                <legend>Add New Major</legend>
+
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="colName">College: </label>
+                    <input class="form-control" type="text" name="colName" id="colName">
+                </div>
+
+                <div class="form-group">
+                    <label for="undergrad">Undergraduate: </label>
+                    <input class="form-control" type="text" name="undergrad" id="undergrad" placeholder="Yes/No">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
 
 
-<form id="Add">
-    <fieldset>
-        <legend>Add Majors</legend>
+    </div>
+</div>
 
-        <div>
-            <label for="addMname">Name: </label>
-            <input type="text" name="addMname" id="addMname">
-        </div>
-        <br>
-        <div>
-            <label for="addCname">College: </label>
-            <input type="text" name="addCname" id="addCname">
-        </div>
-        <br>
-        <div>
-            <label for="undergrad">Undergraduate: </label>
-            <input type="text" name="undergrad" id="undergrad">
-        </div>
-        <br>
-        <div>
-            <input type="submit" id="addMajor">
-        </div>
-    </fieldset>
-</form>
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">College</th>
+            <th scope="col">Undergraduate</th>
+        </tr>
+    </thead>
 
-<form id='Search'>
-    <fieldset>
-        <legend>Search Majors</legend>
-        <div>
-            <label for="sMajorid"> By Major Name: </label>
-            <input type="text" name="sMajorid" id="sMajorid">
-            <input type="submit" id='searchMajorid'>
-        </div>
-    </fieldset>
-</form>
-
-<table id="searchResults">
-    <tr>
-        <th>Major ID </th>
-        <th>Major Name </th>
-        <th>College</th>
-        <th>Undergraduate</th>
-    </tr>
-
-    <tr>
-        <td><input type="text" value="1234"></td>
-        <td><input type="text" value="Physics"></td>
-        <td><input type="text" value="Engineering"></td>
-        <td><input type="text" value="Yes" </td>
-    </tr>
-
-</table>
+    <tbody>
+        {{#each majs}}
+        <tr>
+            <th scope="row">{{major_id}}</th>
+            <td>{{name}}</td>
+            <td>{{college}}</td>
+            <td>{{undergraduate}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
