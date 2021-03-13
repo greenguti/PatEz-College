@@ -1,71 +1,88 @@
-<h1>CLASSES</h1>
+<div class="container">
+    <div class="row">
+        <form class="col-md-5" id="Add" action="/classes" method="post">
+            <fieldset>
+                <legend>Add New Class</legend> 
 
-<form id="Add">
-    <fieldset>
-        <legend>Add Class</legend>
+                <div class="form-group">
+                    <label for="cName">Class Name: </label>
+                    <input class="form-control" type="text" name="cName" id="cName">
+                </div>
+                
+                <div class="form-group">
+                    <label for="addCap">Capacity </label>
+                    <input class="form-control" type="text" name="addCap" id="addCap">
+                </div>
 
-        <div>
-            <label for="addCname">Name: </label>
-            <input type="text" name="addCname" id="addCname">
-        </div>
-        <br>
-        <div>
-            <label for="addCap">Capacity: </label>
-            <input type="text" name="addCap" id="addCap">
-        </div>
-        <br>
+                <div class="form-group">
+                    <label for="majorid">Major ID: </label>
+                    <input class="form-control" type="text" name="majorid" id="majorid">
+                </div>
 
-        <div>
-            <label for="majorid">Major: </label>
-            <input type="text" name="majorid" id="majorid">
-        </div>
-        <br>
-        <div>
-            <label for="pfname">Professor First Name: </label>
-            <input type="text" name="majorid" id="majorid">
-        </div>
-        <br>
-        <div>
-            <label for="plname">Professor Last Name: </label>
-            <input type="text" name="majorid" id="majorid">
-        </div>
-        <br>
-        <div>
-            <input type="submit" id="addClass">
-        </div>
-    </fieldset>
-</form>
+                <div class="form-group">
+                    <label for="pfname">Professor First Name </label>
+                    <input class="form-control" type="text" name="pfname" id="pfname">
+                </div>
 
+                <div class="form-group">
+                    <label for="plname">Professor Last Name </label>
+                    <input class="form-control" type="text" name="plname" id="plname">
+                </div>
 
-<form id='Search'>
-    <fieldset>
-        <legend>Search Classes</legend>
-        <div>
-            <label for="sCid"> By Class Name: </label>
-            <input type="text" name="sCid" id="sCid" value="AUTO-POPULATE">
-            <input type="submit" id='searchClass'>
-        </div>
-        <br>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="submit" value="Add" id="addSub">
+                </div>
+            </fieldset>
+        </form>
 
-    </fieldset>
-</form>
+        <div class="col-md-2"></div>
 
-<table id="searchResults">
-    <tr>
-        <th>Class ID</th>
-        <th>Name</th>
-        <th>Capacity</th>
-        <th>Major</th>
-        <th>Professor</th>
-    </tr>
+        <form class="col-md-5" id='Search'>
+            <fieldset>
+                <legend>Search Classes</legend>
 
-    <tr>
-        <td><input type="text" value="314"></td>
-        <td><input type="text" value="Intro to Thermodynamics"></td>
-        <td><input type="text" value="100"></td>
-        <td><input type="text" value="1234"></td>
-        <td><input type="text" value="Einstein"></td>
+                <div class="form-group">
+                    <label for="sMajorid">Class Name: </label>
+                    <input class="form-control" type="text" name="sMajorid" id="sMajorid">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="Search" id='searchClass' onclick="getClassByName()">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-dark" type="button" value="All Classes" id='getAll'
+                        onclick="window.location.href='/classes'">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
 
-    </tr>
+<table class="table table-striped mt-5" id="searchResults">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Class ID</th>
+            <th scope="col">Class Name</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Major</th>
+            <th scope="col">Professor Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each Cla}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{class_name}}</td>
+            <td>{{capacity}}</td>
+            <td>{{major_id}}</td>
+            <td>{{pName}}</td>
+             <td><button onclick="deleteClass({{id}})">Delete</button></td>
+            <td><a href="/class/{{id}}">Update</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
 
 </table>
